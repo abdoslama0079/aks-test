@@ -15,7 +15,7 @@ module "ServicePrincipal" {
 
 resource "azurerm_role_assignment" "rolespn" {
   principal_id         = module.ServicePrincipal.service_principal_object_id
-  scope                = "e7781286-1313-4f56-b709-17581e607f1c"
+  scope                = azurerm_resource_group.rg1.id
   role_definition_name = "Contributor"
   depends_on = [
     module.ServicePrincipal
